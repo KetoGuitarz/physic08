@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public transform shooter;
-    public float shooterForce;
+    public Transform shooter;
+    public float shootForce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,9 +16,9 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseBottonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            shooter();
+            Shoot();
         }
         
     }
@@ -26,8 +27,8 @@ public class Shooter : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, shooter.position, transform.rotation);
 
-        Rigibody rigibody = bullet.GetComponent<Rigibody>();
-        rigibody.AddForce(shooter.right * shootForce, ForceMode.Impulse);
+        Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
+        rigidbody.AddForce(shooter.right * shootForce, ForceMode.Impulse);
     }
 }
 
