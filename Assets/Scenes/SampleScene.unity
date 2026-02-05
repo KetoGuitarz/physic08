@@ -647,13 +647,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268500154}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021, y: 0.554, z: 0.613}
+  m_LocalRotation: {x: -0, y: -0.5988266, z: -0, w: -0.80087876}
+  m_LocalPosition: {x: -0.05700066, y: 0.554, z: 1.274}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1185574078}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -38446.43, z: 0}
 --- !u!114 &268500156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,6 +666,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bb752994fe89a42ab023870075ee45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  bulletPrefab: {fileID: 2720670860617286122, guid: 372554c39fb3e504aa9a9d17af19d2c2, type: 3}
+  shooter: {fileID: 1185574078}
+  shootForce: 10
 --- !u!1 &424096442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,7 +2767,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7dc5fd8e20a81f64bad409f1abe87187, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2958,7 +2961,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ccb533433108ce644bcd31941ea8a158, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4349,7 +4352,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09801686, y: -0, z: -0, w: 0.99518484}
-  m_LocalPosition: {x: 0, y: 20.9, z: -48}
+  m_LocalPosition: {x: 0, y: 20.9, z: -54.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5789,6 +5792,7 @@ GameObject:
   - component: {fileID: 1197193227}
   - component: {fileID: 1197193226}
   - component: {fileID: 1197193225}
+  - component: {fileID: 1197193231}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -5908,7 +5912,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7dc5fd8e20a81f64bad409f1abe87187, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5955,6 +5959,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197193231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197193224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d79104f2a1eaa40a49b18142fb91b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WrexkingBall
+  rb: {fileID: 1197193226}
+  force: 200
 --- !u!1 &1229567707
 GameObject:
   m_ObjectHideFlags: 0
@@ -9244,7 +9262,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8045886463519632959, guid: b98ba88ce4bc46941990fb1ea2083dfb, type: 3}
+      propertyPath: shooter
+      value: 
+      objectReference: {fileID: 1185574078}
+    - target: {fileID: 8045886463519632959, guid: b98ba88ce4bc46941990fb1ea2083dfb, type: 3}
+      propertyPath: shootForce
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8045886463519632959, guid: b98ba88ce4bc46941990fb1ea2083dfb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4751442908359396769, guid: b98ba88ce4bc46941990fb1ea2083dfb, type: 3}
@@ -9378,6 +9405,7 @@ GameObject:
   - component: {fileID: 1782022936}
   - component: {fileID: 1782022935}
   - component: {fileID: 1782022934}
+  - component: {fileID: 1782022939}
   m_Layer: 0
   m_Name: Link (6)
   m_TagString: Untagged
@@ -9521,6 +9549,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782022932}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!59 &1782022939
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782022932}
+  serializedVersion: 3
+  m_ConnectedBody: {fileID: 1551567075}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0.49999464, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_ExtendedLimits: 0
+  m_UseAcceleration: 0
+  m_Limits:
+    min: 0
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1804545148
 GameObject:
   m_ObjectHideFlags: 0
